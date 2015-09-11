@@ -1,0 +1,4 @@
+﻿#忽略windows生成的缩略图文件
+Thunbs.db
+#忽略nodejs模块文件夹
+/node_modules
