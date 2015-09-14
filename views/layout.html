@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- meta -->
+	<meta charset="utf-8"/>
+	<meta name='description' content='<%= config.description %>'>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="keywords" content="<%= config.keywords %>"/>
+	<meta name="referrer" content="always">
+
+	<%
+	var headers = config.site_headers || [];
+	for (var i = 0, l = headers.length; i < l; i++) {
+	%>
+	<%- headers[i] %>
+	<% } %>
+
+	<link title="RSS" type="application/rss+xml" rel="alternate" href="/rss"/>
+
+	<% if (typeof(topic) !== 'undefined') { %>
+	<title><%= topic.title %> - <%= config.name %></title>
+	<% } else if (typeof(pageTitle) !== 'undefined') { %>
+	<title><%= pageTitle %> - <%= config.name %></title>
+	<% } else { %>
+	<title><%= config.description %></title>
+	<% } %>
+
+</head>
+<body>
+	<!-- 侧边导航栏 -->
+	<%- partial('./sidebar') %>
+	<!-- 顶部用户栏 -->
+	<%- partial('./topbar') %>
+	<!-- 页面内容 -->
+	<%- body %></body>
+</html>

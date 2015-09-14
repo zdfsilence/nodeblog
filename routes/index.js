@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var config = require('../config');
 
-/* GET home page. */
+/* 首页 */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
